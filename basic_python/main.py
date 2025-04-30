@@ -95,3 +95,8 @@ def foo(x,y):
 
 # breaks usual flow to run function
 print(foo(2,1))
+
+# Modules and imports
+# file called funcs.py
+# import funcs
+# funcs.f() to use functions
