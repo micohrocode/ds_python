@@ -42,3 +42,6 @@ def lcs(X,Y):
 
     # finallt return the bottom right with longest common subseqeunce
     return t[(len(X),len(Y))]
+
+# TODO: watch the cs dojo videos on dynamix programming
+# and take notes
