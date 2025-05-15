@@ -71,10 +71,13 @@ def partition(array, low, high):
     # pointer for greater element
     i = low - 1
     for j in range(low,high):
+        # if its less than the pivot
         if array[j] <= pivot:
+            # a swap is needed
             i = i + 1
             (array[i], array[j]) = (array[j], array[i])
     
+    # move pivot to its correct position
     (array[i + 1], array[high]) = (array[high], array[i + 1])
     return i+1
 
