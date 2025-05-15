@@ -6,36 +6,40 @@ def bubblesort(l):
                 # to the end of the
                 l[i], l[i+1] = l[i+1], l
 
-# TODO: come back to learn about this one more
+# selection sort:
+# find the smallest element and swap it with the current index
 def selectionsort(l):
-    n = len(l)
+    for ind in range(len(l)):
+        min_index = ind
 
-    # go through the whole list
-    for i in range(n-1):
-        max_index = 0
-        # chekcing only the range that hasnt been sorted
-        for index in range(n - i):
-            if l[index] > l[max_index]:
-                # the max index is moved up as the number
-                # is greater
-                max_index = index
-        # place the number
-        l[n-i-1], l[max_index] = l[max_index], l[n-i-1]
+        for j in range(ind+1,size):
+            # select the min element
+            if l[j] < l[min_index]:
+                min_index = j
 
-# TODO: read more about this
+        # swap the elements
+        l[ind], l[min_index] = l[min_index], l[ind]
+
+# insertion sort
+# essentially work backwards, check for numbers greater than
+# the one you are check and move them forward
+# place the element you are checking where it should go
 def insertionsort(l):
     n = len(l)
 
-    # for each item in the list
-    for i in range(n):
-        # set j to the current un ordered
-        # spot at the end of the list
-        j = n - i - 1
+    if n<= 1:
+        return
+    
+    # start from the second element
+    for i in range(1,n):
+        # element to check
+        key = l[i]
 
-        # check for a number that needs
-        # moved
-        while j<n-1 and l[j]>l[j+1]:
-            # swap the numbers
-            l[j], l[j+1] = l[j+1], l[j]
-            # move j
-            j+=1
+        j = i - 1
+        while j>=0 and key<l[j]:
+            # move elements to the right
+            l[j+1] = l[j]
+            j -= 1
+        
+        # insert the key element to where it should be
+        l[j+1] = key
